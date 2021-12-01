@@ -1,0 +1,60 @@
+{% extends 'admin/shop/headerfooter.html'%}
+{% block content %}
+
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="forms">					
+					<div class="row">
+						<h3 class="title1">View Study Materials :</h3>
+                		<div align="center" style="color: red;"><h3>{{msgkey}}</h3></div> 
+							<div class="form-three widget-shadow">
+								<form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+									 {% csrf_token %}
+									
+									<table class="table">
+              				<tr>
+              					 <th>Standard</th>
+                   				 <th>Division</th>
+                   				 <th>Subject</th>
+
+              					 <th>File</th>
+              					 <th>Action</th>
+
+
+                
+                 
+
+
+                			</tr>
+              
+         
+              					{% for x in db %}
+              				<tr>
+    
+            				        <td>{{x.standard}}</td>
+                            		<td>{{x.division}}</td>
+                            		<td>{{x.subjects}}</td>
+
+            
+            					<td><a href="{{x.file.url}}" target="_blank">pdf</a></td>
+            					
+                    			<td><a href="/delete_studymaterials/?id={{x.id}}">Delete</a></td>
+
+
+                       
+            				</tr>
+             					{% endfor %}
+            
+            
+         				 </table>
+                        
+									
+								</form>
+							</div>									
+					</div>
+				</div>
+			</div>
+		</div>		
+{% endblock %}
+	

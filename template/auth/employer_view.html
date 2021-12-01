@@ -1,0 +1,112 @@
+{% extends 'auth/headerfooter.html'%}
+{% block content %}
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="tables">
+					<h2 class="title1">Employer Registration Details</h2>
+				
+					<div class="table-responsive bs-example widget-shadow">
+						<!-- <h4>Employee :</h4> -->
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Logo   </th>
+									<th>Name Of the Organization  </th> 
+									<th>Name of the Representative </th>
+									<th>Email of the Representative </th>
+									<th>Contact Number  </th> 
+									<th>Contact Number of the Representative </th> 
+									<th>Designation of the Representative </th> 
+									<th>Website </th> 
+									<th>Address of the Organization  </th> 
+
+									<th>No Of Position </th> 
+									<th>Gender </th> 
+									<th>Job Title  </th> 
+									<th>Job Description  </th> 
+									
+
+									<th>No Of Position  </th> 
+									<th>Gender </th> 
+									<th>Job Title </th> 
+									<th>Job Description </th> 
+									
+
+									<th>No Of Position </th> 
+									<th>Gender </th> 
+									<th>Job Title </th> 
+									<th>Job Description </th> 
+									
+
+									<th>No Of Position </th> 
+									<th>Gender </th> 
+									<th>Job Title </th> 
+									<th>Job Description </th> 
+									
+
+									<th>No Of Position </th> 
+									<th>Gender </th> 
+									<th>Job Title </th> 
+									<th>Job Description </th> 
+									
+
+									
+								</tr> 
+							</thead> 
+							<tbody> 
+								{% if query %}
+								{% for x in query %}
+								
+								<tr> 
+									<th scope="row">{{forloop.counter}}</th> 
+									<td><img src="{{x.logo.url}}" style="width: 200px; height: 150px; object-fit: contain;"></td> 
+									<td>{{x.nameorg}}</td> 
+									<td>{{x.rname}}</td> 
+									<td>{{x.email}} </td> 
+									<td>{{x.phone}} </td> 
+									<td>{{x.phoner}} </td> 
+									<td>{{x.designation}} </td> 
+									<td>{{x.address}} </td> 
+									<td>{{x.website}} </td> 
+
+									<td>{{x.positionnumber}} </td> 
+									<td>{{x.gender}} </td> 
+									<td>{{x.jobtitle}} </td> 
+									<td>{{x.description}} </td> 
+
+									<td>{{x.positionnumber1}} </td> 
+									<td>{{x.gender1}} </td> 
+									<td>{{x.jobtitle1}} </td> 
+									<td>{{x.description1}} </td> 
+
+									<td>{{x.positionnumber2}} </td> 
+									<td>{{x.gender2}} </td> 
+									<td>{{x.jobtitle2}} </td> 
+									<td>{{x.description2}} </td>
+
+									<td>{{x.positionnumber3}} </td> 
+									<td>{{x.gender3}} </td> 
+									<td>{{x.jobtitle3}} </td> 
+									<td>{{x.description3}} </td> 
+
+									<td>{{x.positionnumber4}} </td> 
+									<td>{{x.gender4}} </td> 
+									<td>{{x.jobtitle4}} </td> 
+									<td>{{x.description4}} </td> 
+
+								</tr> 
+								{% endfor %}
+								{% else %}
+								<tr>
+									<td colspan="30" style="vertical-align: middle; text-align: center;"><p>No Data</p></td>
+								{% endif %}
+							</tbody> 
+						</table> 
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+	

@@ -1,0 +1,515 @@
+{% extends "home/headerfooter.html" %}
+{% block content %}
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+$(document).ready(function(){
+    var maxField = 10;
+    var addButton = $('.add_button'); 
+    var wrapper = $('.hid'); 
+    var fieldHTML = '<div> <div class="border-title"><h3>Job Details</h3></div><div class="resumeadd-form"><div class="row"><div class="col-lg-6"><span class="pf-title">No Of Position</span><div class="pf-field"><input placeholder="" name="noof" type="text" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" required=""></div></div><div class="col-lg-6"><span class="pf-title">Gender</span><div class="pf-field"><select name="gender"  class="form-control datepicker"><option selected>Select Option</option><option value="Male">Male</option><option value="Female">Female</option><option value="Both">Both</option><option value="Other"></select></div></div><div class="col-lg-12"><span class="pf-title">Job Title</span><div class="pf-field"><input placeholder="" name="jobtitle" type="text" class="form-control datepicker" required=""></div></div><div class="col-lg-12"><span class="pf-title">Job Description</span><div class="pf-field"><textarea placeholder="" name="jobdescription" required=""></textarea></div></div></div></div><a href="javascript:void(0);" style="padding-left: 15px;" class="remove_button"><input type="button" value="Remove" class="subclassr"></a></div>';  
+    var x = 1; 
+    
+    
+    $(addButton).click(function(){
+        
+        if(x < maxField){ 
+            x++; 
+            $(wrapper).append(fieldHTML); 
+        }
+    });
+    
+   
+    $(wrapper).on('click', '.remove_button', function(e){
+        e.preventDefault();
+        $(this).parent('div').remove(); 
+        x--; 
+    });
+});
+</script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	setTimeout(function() {
+    $('#msg').fadeOut('fast');
+}, 1000);
+</script>
+
+	<section class="overlape">
+		<div class="block no-padding">
+			<div data-velocity="-.1" style="background: url(images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+			<div class="container fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="inner-header">
+							<h4 style="color: red" id="msg">{{error}}</h4>
+							<h3>Employer Registration Form </h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="block remove-top">
+			<div class="container">
+				 <div class="row no-gape">
+				 	<aside class="col-lg-3 column border-right">
+				 		<!-- <div class="widget">
+				 			<div class="tree_widget-sec">
+				 				<ul>
+				 					<li><a href="candidates_profile.html" title=""><i class="la la-file-text"></i>My Profile</a></li>
+									<li><a href="candidates_my_resume.html" title=""><i class="la la-briefcase"></i>My Resume</a></li>
+									<li><a href="candidates_shortlist.html" title=""><i class="la la-money"></i>Shorlisted Job</a></li>
+									<li><a href="candidates_applied_jobs.html" title=""><i class="la la-paper-plane"></i>Applied Job</a></li>
+									<li><a href="candidates_job_alert.html" title=""><i class="la la-user"></i>Job Alerts</a></li>
+									<li><a href="candidates_cv_cover_letter.html" title=""><i class="la la-file-text"></i>Cv & Cover Letter</a></li>
+									<li><a href="candidates_change_password.html" title=""><i class="la la-flash"></i>Change Password</a></li>
+									<li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
+				 				</ul>
+				 			</div>
+				 		</div> -->
+				 		<!-- <div class="widget">
+				 			<div class="skill-perc">
+				 				<h3>Skills Percentage </h3>
+				 				<p>Put value for "Cover Image" field to increase your skill up to "15%"</p>
+				 				<div class="skills-bar">
+				 					<span>85%</span>
+				 					<div 
+				 						class="second circle" 
+				 						data-size="155"
+				 						data-thickness="60">
+								    </div>
+				 				</div>
+				 			</div>
+				 		</div> -->
+				 	</aside>
+
+				 	<div class="col-lg-9 column">
+				 		<div class="padding-left">
+					 		<div class="manage-jobs-sec">
+					 			<div class="resumeadd-form">
+						 			<div class="row">
+						 				<form action="/employer/" method="POST" enctype='multipart/form-data'>
+						 					{% csrf_token %}
+						 				<div class="col-lg-12">
+						 					<br>
+					 						<p>Max file size is 5MB,  And Suitable files are jpg,png Only</p>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<div class="upload-portfolio">
+					 							<!-- <div class="uploadbox"> -->
+					 								<!-- <label for="file-upload" class="custom-file-upload"> -->
+													    <!-- <i class="la la-cloud-upload"></i> <span>Upload Logo</span> -->
+													</label>
+							 						<span class="pf-title">Upload your Logo here</span>
+
+													<input id="file-upload" class="form-control" type="file" name="logo" accept=".jpeg,.png" / required=""> <!-- style="display: none;"  -->
+					 							</div>
+					 							<!-- <div class="uploadfield"> -->
+							 						<!-- <span class="pf-title">Upload your Logo here</span> -->
+							 						<!-- div class="pf-field">
+							 							<input placeholder="Tooms.." type="text">
+							 						</div> -->
+							 					<!-- </div> -->
+					 						<!-- </div> -->
+					 					<!-- </div> -->
+					 				<!-- </div> -->
+					 			</div>
+					 			<div class="border-title"><h3>Company Profile</h3></div>
+						 		<div class="resumeadd-form">
+						 			<div class="row">
+						 				<div class="col-lg-6">
+					 						<span class="pf-title">Name Of the Organization</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="nameorg" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Name of the Representative</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="rname" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Email of the Representative</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="email" type="email" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Contact Number</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="phone" type="tel" maxlength="10" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" required="">
+					 						</div>					 						
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Contact Number of the Representative</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="phoner" type="tel" maxlength="10" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" required="">
+					 						</div>					 						
+					 					</div>
+					 					<script>
+										function onlyNumberKey(evt) {
+										  
+										// Only ASCII character in that range allowed
+										var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+										if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+										    return false;
+										return true;
+										}
+										</script>
+										<div class="col-lg-6">
+					 						<span class="pf-title">Designation of the Representative</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="designation" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+                                            <span  class="pf-title">Website</span>
+                                            <div class="pf-field">
+                                                <input type="url"  name='website' class="form-control datepicker" required="" >
+                                                
+                                            </div>
+                                        </div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Address of the Organization</span>
+					 						<div class="pf-field">
+					 							<textarea placeholder="" name="address" required=""></textarea>
+					 						</div>
+					 					</div>
+
+
+					 					<!-- <div class="border-title"><h3>Job Details</h3></div>
+					 					<div class="resumeadd-form">
+							 			<div class="row">
+							 				<div class="col-lg-6">
+						 						<span class="pf-title">No Of Position</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="fname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>
+						 					<div class="col-lg-6">
+						 						<span class="pf-title">Gender</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="lname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Title</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="lname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Description</span>
+						 						<div class="pf-field">
+						 							<textarea placeholder="" name="address" required=""></textarea>
+						 						</div>
+						 					</div>					 					
+							 			</div>
+							 		</div> -->
+							 		<div class="hid">
+							 		<div>
+        							<div class="border-title"><h3>Job Details</h3></div>
+					 					<div class="resumeadd-form">
+							 			<div class="row">
+							 				<div class="col-lg-6">
+						 						<span class="pf-title">No Of Position</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="noof" type="text" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" required="">
+						 						</div>
+						 					</div>
+						 					<div class="col-lg-6">
+						 						<span class="pf-title">Gender</span>
+						 						<div class="pf-field">
+						 							<select name='gender'  class="form-control datepicker">
+                                                    <option selected>Select Option</option>
+                                                    <option value='Male'>Male</option>
+                                                    <option value='Female'>Female</option>
+                                                    <option value='Both'>Both</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Title</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="jobtitle" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Description</span>
+						 						<div class="pf-field">
+						 							<textarea placeholder="" name="jobdescription" required=""></textarea>
+						 						</div>
+						 					</div>					 					
+							 			</div>
+							 		</div>        
+    								</div>
+    							</div>
+
+<div id="myj1" style="display: none">
+                  <div>
+                      <div class="border-title"><h3>Job Details</h3></div>
+                    <div class="resumeadd-form">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <span class="pf-title">No Of Position</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="noof1" type="text" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" >
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <span class="pf-title">Gender</span>
+                        <div class="pf-field">
+                          <select name='gender1'  class="form-control datepicker">
+                                                    <option selected>Select Option</option>
+                                                    <option value='Male'>Male</option>
+                                                    <option value='Female'>Female</option>
+                                                    <option value='Both'>Both</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Title</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="jobtitle1" type="text" class="form-control datepicker" >
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Description</span>
+                        <div class="pf-field">
+                          <textarea placeholder="" name="jobdescription1" ></textarea>
+                        </div>
+                      </div>                    
+                    </div>
+                  </div>        
+                    </div>
+                  </div>
+
+<div style="padding-left: 15px;">
+<input type="button"  id="myb21" style="display: none" class="subclassr" value="Remove" onclick="remove()"></div>
+
+<div id="myj2" style="display: none">
+                  <div>
+                      <div class="border-title"><h3>Job Details</h3></div>
+                    <div class="resumeadd-form">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <span class="pf-title">No Of Position</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="noof2" type="text" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" >
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <span class="pf-title">Gender</span>
+                        <div class="pf-field">
+                          <select name='gender2'  class="form-control datepicker">
+                                                    <option selected>Select Option</option>
+                                                    <option value='Male'>Male</option>
+                                                    <option value='Female'>Female</option>
+                                                    <option value='Both'>Both</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Title</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="jobtitle2" type="text" class="form-control datepicker" >
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Description</span>
+                        <div class="pf-field">
+                          <textarea placeholder="" name="jobdescription2" ></textarea>
+                        </div>
+                      </div>                    
+                    </div>
+                  </div>        
+                    </div>
+                  </div>
+
+<div style="padding-left: 15px;">
+<input type="button" id="myb212" style="display: none" class="subclassr" value="Remove" onclick="remove2()"></div>
+
+<div id="myj3" style="display: none">
+                  <div>
+                      <div class="border-title"><h3>Job Details</h3></div>
+                    <div class="resumeadd-form">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <span class="pf-title">No Of Position</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="noof3" type="text" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" >
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <span class="pf-title">Gender</span>
+                        <div class="pf-field">
+                          <select name='gender3'  class="form-control datepicker">
+                                                    <option selected>Select Option</option>
+                                                    <option value='Male'>Male</option>
+                                                    <option value='Female'>Female</option>
+                                                    <option value='Both'>Both</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Title</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="jobtitle3" type="text" class="form-control datepicker" >
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Description</span>
+                        <div class="pf-field">
+                          <textarea placeholder="" name="jobdescription3" ></textarea>
+                        </div>
+                      </div>                    
+                    </div>
+                  </div>        
+                    </div>
+                  </div>
+
+<div style="padding-left: 15px;">
+<input type="button" id="myb213" style="display: none" class="subclassr" value="Remove" onclick="remove3()"></div>
+
+<div id="myj4" style="display: none">
+                  <div>
+                      <div class="border-title"><h3>Job Details</h3></div>
+                    <div class="resumeadd-form">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <span class="pf-title">No Of Position</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="noof4" type="text" class="form-control datepicker" onkeypress="return onlyNumberKey(event)">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <span class="pf-title">Gender</span>
+                        <div class="pf-field">
+                          <select name='gender4'  class="form-control datepicker">
+                                                    <option selected>Select Option</option>
+                                                    <option value='Male'>Male</option>
+                                                    <option value='Female'>Female</option>
+                                                    <option value='Both'>Both</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Title</span>
+                        <div class="pf-field">
+                          <input placeholder="" name="jobtitle4" type="text" class="form-control datepicker" >
+                        </div>
+                      </div>  
+                      <div class="col-lg-12">
+                        <span class="pf-title">Job Description</span>
+                        <div class="pf-field">
+                          <textarea placeholder="" name="jobdescription4" ></textarea>
+                        </div>
+                      </div>                    
+                    </div>
+                  </div>        
+                    </div>
+                  </div>
+
+<div style="padding-left: 15px;">
+<input type="button" id="myb214" style="display: none" class="subclassr" value="Remove" onclick="remove4()"></div>
+
+
+							 		<!-- <div style="display: ;">
+							 		<div class="border-title"><h3>Job Details 2</h3></div>
+					 					<div class="resumeadd-form">
+							 			<div class="row">
+							 				<div class="col-lg-6">
+						 						<span class="pf-title">No Of Position</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="fname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>
+						 					<div class="col-lg-6">
+						 						<span class="pf-title">Gender</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="lname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Title</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="lname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Description</span>
+						 						<div class="pf-field">
+						 							<textarea placeholder="" name="address" required=""></textarea>
+						 						</div>
+						 					</div>					 					
+							 			</div>
+							 		</div>
+							 	</div> -->
+							 	<!-- <div style="display: none;">
+							 		<div class="border-title"><h3>Job Details 3</h3></div>
+					 					<div class="resumeadd-form">
+							 			<div class="row">
+							 				<div class="col-lg-6">
+						 						<span class="pf-title">No Of Position</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="fname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>
+						 					<div class="col-lg-6">
+						 						<span class="pf-title">Gender</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="lname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Title</span>
+						 						<div class="pf-field">
+						 							<input placeholder="" name="lname" type="text" class="form-control datepicker" required="">
+						 						</div>
+						 					</div>	
+						 					<div class="col-lg-12">
+						 						<span class="pf-title">Job Description</span>
+						 						<div class="pf-field">
+						 							<textarea placeholder="" name="address" required=""></textarea>
+						 						</div>
+						 					</div>					 					
+							 			</div>
+							 		</div>
+							 	</div> -->
+					 					
+					 					
+						 				
+						 		
+							 			
+					 							
+					 					<div class="col-lg-12">
+					 						 <!-- <input type="button" value="Add" class="subclass" > -->
+					 						 <!-- <a href="javascript:void(0);" class="add_button" title="Add field"><input type="button" value="Add More Jobs" class="subclass" ></a> -->
+					 						 <input type="button" id="myb11" onclick="add()"  value="Add More Jobs" class="subclass" >
+<input type="button" id="myb112" style="display: none" onclick="add2()" value="Add More Jobs" class="subclass" >
+<input type="button" id="myb113" style="display: none" onclick="add3()" value="Add More Jobs" class="subclass" >
+<input type="button" id="myb114" style="display: none" onclick="add4()" value="Add More Jobs" class="subclass" >
+					 						 <button type="submit">Submit</button>
+					 					</div>
+					 					
+					 					</form>
+						 			</div>
+						 		</div>
+					 		</div>
+					 	</div>
+					</div>
+				 </div>
+			</div>
+		</div>
+	</section>
+
+
+	{% endblock %}

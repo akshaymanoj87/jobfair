@@ -1,0 +1,43 @@
+{% extends 'admin/shop/headerfooter.html'%}
+{% block content %}
+		<!-- main content start-->
+		<div id="page-wrapper">
+			<div class="main-page">
+				<div class="tables">
+					<h2 class="title1"> View Study Materials</h2>
+					<div class="bs-example widget-shadow" data-example-id="hoverable-table"> 
+						<!-- <h4>Hover Rows Table:</h4> -->
+						<form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+						<table class="table table-hover"> 
+							<thead> 
+								<tr> 
+									<th>department</th>
+									<th>semester</th>
+									<th>subjects</th>
+									<th>File</th>
+									<th>Action</th>
+
+								</tr> 
+							</thead> 
+							<tbody> 
+								{% for x in db %}
+								<tr> 
+									<td>{{x.department}}</td>
+                            		<td>{{x.semester}}</td>
+                            		<td>{{x.subjects}}</td>
+
+            
+            					<td><a href="{{x.file.url}}" target="_blank">pdf</a></td>
+            					
+                    			<td><a href="/delete_studymaterials/?id={{x.id}}">Delete</a></td>
+								</tr> 	
+								{% endfor %}							
+							</tbody>
+						</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+	

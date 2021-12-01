@@ -1,0 +1,224 @@
+{% extends "home/headerfooter.html" %}
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	setTimeout(function() {
+    $('#msg').fadeOut('fast');
+}, 1000);
+</script>
+
+	<section class="overlape">
+		<div class="block no-padding">
+			<div data-velocity="-.1" style="background: url(images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+			<div class="container fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="inner-header">
+							<h4 style="color: red" id="msg">{{error}}</h4>
+							<h3>Employee Registration Form </h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="block remove-top">
+			<div class="container">
+				 <div class="row no-gape">
+				 	<aside class="col-lg-3 column border-right">
+				 		<!-- <div class="widget">
+				 			<div class="tree_widget-sec">
+				 				<ul>
+				 					<li><a href="candidates_profile.html" title=""><i class="la la-file-text"></i>My Profile</a></li>
+									<li><a href="candidates_my_resume.html" title=""><i class="la la-briefcase"></i>My Resume</a></li>
+									<li><a href="candidates_shortlist.html" title=""><i class="la la-money"></i>Shorlisted Job</a></li>
+									<li><a href="candidates_applied_jobs.html" title=""><i class="la la-paper-plane"></i>Applied Job</a></li>
+									<li><a href="candidates_job_alert.html" title=""><i class="la la-user"></i>Job Alerts</a></li>
+									<li><a href="candidates_cv_cover_letter.html" title=""><i class="la la-file-text"></i>Cv & Cover Letter</a></li>
+									<li><a href="candidates_change_password.html" title=""><i class="la la-flash"></i>Change Password</a></li>
+									<li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
+				 				</ul>
+				 			</div>
+				 		</div> -->
+				 		<!-- <div class="widget">
+				 			<div class="skill-perc">
+				 				<h3>Skills Percentage </h3>
+				 				<p>Put value for "Cover Image" field to increase your skill up to "15%"</p>
+				 				<div class="skills-bar">
+				 					<span>85%</span>
+				 					<div 
+				 						class="second circle" 
+				 						data-size="155"
+				 						data-thickness="60">
+								    </div>
+				 				</div>
+				 			</div>
+				 		</div> -->
+				 	</aside>
+				 	<div class="col-lg-9 column">
+				 		<div class="padding-left">
+					 		<div class="manage-jobs-sec">
+					 			<form action="/employe/" method="POST" enctype='multipart/form-data'>
+					 			<div class="border-title"><h3>Personal Details</h3></div>
+						 		<div class="resumeadd-form">
+						 			<div class="row">
+						 				<div class="col-lg-6">
+					 						<span class="pf-title">First Name</span>
+					 						<div class="pf-field">
+					 							<input placeholder="First Name" name="fname" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Last Name</span>
+					 						<div class="pf-field">
+					 							<input placeholder="Last Name" name="lname" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Email id</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="email" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Mobile Number</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="phone" type="tel" maxlength="10" class="form-control datepicker" onkeypress="return onlyNumberKey(event)" required="">
+					 						</div>					 						
+					 					</div>
+					 					<script>
+										function onlyNumberKey(evt) {
+										  
+										// Only ASCII character in that range allowed
+										var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+										if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+										    return false;
+										return true;
+										}
+										</script>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">D.O.B</span>
+					 						<div class="pf-field">
+					 							<input  type="date" name="dob" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Age</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="age" type="tel" onkeypress="return onlyNumberKey(event)" maxlength="2" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Gender</span>
+					 						<div class="pf-field">
+					 							<div class="form-check form-check-inline">
+												  <input class="form-check-input" type="radio" name="gender" id="gender1" value="Male" required="">
+												  <label class="form-check-label" for="gender1">Male</label>
+												</div>
+												<div class="form-check form-check-inline">
+												  <input class="form-check-input" type="radio" name="gender" id="gender2" value="Female" required="">
+												  <label class="form-check-label" for="gender2" >Female</label>
+												</div>
+					 						</div>					 						
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Marital Status</span>
+					 						<div class="pf-field">
+					 							<select name="marital_status" class="form-control datepicker" aria-required="true" aria-invalid="false" required="">
+					 								<option >select one</option>
+					 								<option value="Single">Single/Unmarried</option>
+					 								<option value="Married">Married</option>
+					 								<option value="Widowed">Widowed</option>
+					 								<option value="Divorced">Divorced</option>
+					 								<option value="Separated">Separated</option>
+					 								<option value="Other">Other</option>
+					 							</select>
+					 						</div>
+					 					</div>
+						 				<div class="col-lg-12">
+					 						<span class="pf-title">Address</span>
+					 						<div class="pf-field">
+					 							<textarea placeholder="" name="address" required=""></textarea>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Language Proficience</span>
+					 						<div class="pf-field">
+					 							<input placeholder=" " name="language" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Education And Qalification</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="qalification" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Previous Experience</span>
+					 						<div class="pf-field">
+					 							<input placeholder="" name="experience" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-6">
+					 						<span class="pf-title">Job Opted</span>
+					 						<div class="pf-field">
+					 							<input placeholder=" " name="jobopted" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<span class="pf-title">Computer Knowledge</span>
+					 						<div class="pf-field">
+					 							<input placeholder=" " name="compknowledge" type="text" class="form-control datepicker" required="">
+					 						</div>
+					 					</div>
+					 					
+					 					
+					 					
+						 			</div>
+						 		</div>
+						 		
+						 		<div class="border-title"><h3>Resume</h3></div>
+						 		<div class="resumeadd-form">
+						 			<div class="row">
+						 				<div class="col-lg-12">
+					 						<p>Max file size is 5MB,  And Suitable files are PDF Only</p>
+					 					</div>
+					 					<div class="col-lg-12">
+					 						<div class="upload-portfolio">
+					 							<!-- <div class="uploadbox"> -->
+					 								<label for="file-upload" class="custom-file-upload">
+													    <!-- <i class="la la-cloud-upload"></i> <span>Upload PDF File</span> -->
+													</label>
+							 						<span class="pf-title">Upload your Resume here</span>
+
+													<input id="file-upload" name="resume" type="file" class="form-control"  accept=".pdf" required="" />  <!-- style="display: none;" -->
+
+					 							</div>
+					 							<!-- <div class="uploadfield"> -->
+							 						<!-- <span class="pf-title">Upload your Resume here</span> -->
+							 						<!-- div class="pf-field">
+							 							<input placeholder="Tooms.." type="text">
+							 						</div> -->
+							 					<!-- </div> -->
+							 					<div class="uploadbutton">
+							 						<button type="submit">Save</button>
+							 					</div>
+							 				</form>
+					 						</div>
+					 					</div>
+						 			</div>
+						 		</div>
+						 		
+						 		
+					 		</div>
+					 	</div>
+					</div>
+				 </div>
+			</div>
+		</div>
+	</section>
+
+
+	{% endblock %}
